@@ -1,5 +1,55 @@
-# qc-anomaly-detection-isolation-forest
-Este repositorio contiene la implementación de un prototipo de investigación para la detección de anomalías en los procesos de control de calidad (CC) de laboratorio para serología de enfermedades infecciosas.
+# SmartQC AI – QC Anomaly Detection with Isolation Forest
 
+**SmartQC AI** es un prototipo funcional orientado a la detección proactiva de anomalías en procesos de control de calidad, integrando reglas estadísticas de referencia, aprendizaje automático con **Isolation Forest** y una interfaz interactiva desarrollada en **Streamlit**.
 
-El proyecto propone desarrollar un sistema inteligente de control de calidad para laboratorios clínicos de serología infecciosa (pruebas como VIH, Hepatitis, etc.). El problema central es que el método tradicional — las reglas de Westgard — solo detecta errores cuando ya son evidentes, genera demasiadas falsas alarmas y asume que los datos siguen una distribución normal, lo cual no siempre ocurre en inmunoensayos. La solución es entrenar un modelo de Machine Learning no supervisado llamado Isolation Forest que aprenda el comportamiento "normal" del sistema y detecte desviaciones sutiles (drifts) antes de que se conviertan en un problema real. Como en los laboratorios no existen registros históricos de errores etiquetados, la validación del modelo se hará con datos sintéticos generados artificialmente que simulan distintos tipos de fallo. El resultado esperado es un prototipo que detecte anomalías con mayor sensibilidad y menos falsas alarmas que el método tradicional, mejorando la seguridad del paciente y reduciendo la carga operativa del personal de laboratorio.
+Este repositorio reúne tanto la parte analítica del proyecto como el prototipo demostrativo del sistema.
+
+---
+
+## Descripción general
+
+El proyecto parte de la necesidad de fortalecer el monitoreo de control de calidad mediante un enfoque complementario al uso de reglas estadísticas tradicionales. Para ello, se desarrolló una solución que permite:
+
+- analizar series temporales de resultados de control
+- comparar alertas estadísticas con anomalías detectadas por IA
+- generar datasets sintéticos para validación
+- simular una consulta a LIS (Sistema de Información de Laboratorio)
+- visualizar hallazgos en un prototipo funcional con enfoque de producto
+
+---
+
+## Funcionalidades del prototipo
+
+La aplicación **SmartQC AI** permite:
+
+- usar un **dataset de ejemplo**
+- **subir archivos CSV**
+- **generar datasets sintéticos**
+- ejecutar una **simulación de consulta a LIS**
+- detectar anomalías mediante **Isolation Forest**
+- visualizar resultados con media y límites de control
+- comparar eventos detectados por IA con reglas estadísticas base
+- generar un **resumen ejecutivo automático**
+
+---
+
+## Estructura del repositorio
+
+```text
+qc-anomaly-detection-isolation-forest/
+├── app/                  # Prototipo funcional en Streamlit
+│   ├── app.py
+│   └── assets/
+│       ├── smartqc_logo.png
+│       └── unir_logo_white.png
+├── notebooks/            # Notebooks de análisis, modelado y validación
+├── data/
+│   └── sample/           # Datasets de ejemplo o sintéticos
+├── docs/
+│   ├── demo/             # Materiales de apoyo para la demostración
+│   └── screenshots/      # Capturas del prototipo
+├── .streamlit/
+│   └── config.toml       # Configuración visual de Streamlit
+├── requirements.txt      # Dependencias del proyecto
+├── .gitignore
+└── README.md
